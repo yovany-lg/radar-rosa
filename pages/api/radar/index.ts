@@ -36,9 +36,18 @@ async function handleRadars() {
         },
         body: JSON.stringify(message),
       });
+      const { data, error } = await supabase
+        .from('radar')
+        .update({
+          pending_notifications: 1,
+        })
+        .match({
+          id: radar.id,
+        });
     } catch (error) {
       console.error(
-        `Failed to send push notification to ${radar.phone_number}`
+        `Failed to send push notification to ${radar.phone_number}`,
+        error
       );
     }
   });
