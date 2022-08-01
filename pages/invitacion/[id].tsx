@@ -3,7 +3,7 @@ import Head from 'next/head';
 import styles from './Invitation.module.css';
 import { supabase } from '@/lib/supabase';
 
-const Invitation = ({ user }) => {
+const Invitation = ({ user }: any) => {
   const [confirmed, setStatus] = React.useState(false);
   const [code, setCode] = React.useState('');
   return (
@@ -57,7 +57,7 @@ const Invitation = ({ user }) => {
   );
 };
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps(ctx: any) {
   const { id } = ctx.query;
 
   // hack because uuid is not working
