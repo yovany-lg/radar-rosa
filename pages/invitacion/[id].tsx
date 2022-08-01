@@ -40,7 +40,7 @@ const Invitation = ({ user }: any) => {
               className={styles.button}
               onClick={() => {
                 if (code !== user.contactPhoneNumnber) {
-                  alert('El numero de telefono no coincide');
+                  alert('El número de teléfono no coincide');
                 } else {
                   setStatus(true);
                 }

@@ -1,5 +1,7 @@
 .container {
   padding: 0 2rem;
+  background-color: #7c3aed;
+  color: white;
 }
 
 .main {
@@ -74,8 +76,8 @@
 }
 
 .card {
-  margin: 1rem;
-  padding: 1.5rem;
+  margin: 0.5rem;
+  padding: 1rem;
   text-align: left;
   color: inherit;
   text-decoration: none;
@@ -88,9 +90,24 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: #4c1d95;
+  border-color: #4c1d95;
 }
+
+.cardIos {
+  margin: 0.5rem;
+  padding: 1rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #888;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  max-width: 300px;
+  color: #888;
+}
+
+
 
 .card h2 {
   margin: 0 0 1rem 0;
