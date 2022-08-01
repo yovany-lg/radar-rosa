@@ -15,12 +15,16 @@ async function handleAlerts() {
         lastName: radar.last_name,
         contactName: radar.contacts.contact2Name,
         contactPhoneNumber: radar.contacts.contact2Phone,
+        latitude: radar.location?.coords?.latitude,
+        longitude: radar.location?.coords?.longitude,
       });
       await sendSMS({
         name: radar.first_name,
         lastName: radar.last_name,
         contactName: radar.contacts.contact1Name,
         contactPhoneNumber: radar.contacts.contact1Phone,
+        latitude: radar.location?.coords?.latitude,
+        longitude: radar.location?.coords?.longitude,
       });
     }
   });

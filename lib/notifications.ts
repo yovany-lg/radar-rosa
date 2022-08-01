@@ -1,4 +1,5 @@
 import { Radar, SMSMessage } from '@/types/radar';
+import { sendSMSNotification } from './aws';
 import { supabase } from './supabase';
 import { twilioClient } from './twilio';
 
@@ -37,15 +38,28 @@ export async function sendNotification(radar: Radar) {
 
 const twilioPhone = process.env.TWILIO_PHONE_NUMBER;
 
-export function sendSMS(smsMessage: SMSMessage) {
-  return (
-    twilioClient.messages
-      .create({
-        body: `Hola ${smsMessage.contactName}! ¿Sabes algo de ${smsMessage.name} ${smsMessage.lastName}? Su Radar Violeta detecto algo inusual.`,
-        from: twilioPhone,
-        to: `+52${smsMessage.contactPhoneNumber}`,
-      })
-      // .then((message) => console.log(message.sid))
-      .catch((error) => console.error(error))
+export function sendSMS({
+  contactPhoneNumber,
+  contactName,
+  name,
+  lastName,
+  latitude,
+  longitude,
+}: SMSMessage) {
+  return sendSMSNotification(
+    `+52${contactPhoneNumber}`,
+    `Hola ${contactName}! ¿Sabes algo de ${name} ${lastName}? Su Radar Violeta detecto algo inusual.
+    La última ubicacion registrada es: https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}
+    `
   );
+  // return (
+  //   twilioClient.messages
+  //     .create({
+  //       body: `Hola ${smsMessage.contactName}! ¿Sabes algo de ${smsMessage.name} ${smsMessage.lastName}? Su Radar Violeta detecto algo inusual.`,
+  //       from: twilioPhone,
+  //       to: `+52${smsMessage.contactPhoneNumber}`,
+  //     })
+  //     // .then((message) => console.log(message.sid))
+  //     .catch((error) => console.error(error))
+  // );
 }

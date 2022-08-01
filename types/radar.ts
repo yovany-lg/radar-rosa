@@ -16,6 +16,8 @@ export interface Radar {
   };
   push_token: string;
   pending_notifications: number;
+  checkpoint_id: number;
+  location: Record<string, any>;
 }
 
 export interface SMSMessage {
@@ -23,4 +25,6 @@ export interface SMSMessage {
   lastName: string;
   contactName: string;
   contactPhoneNumber: string;
+  latitude?: number;
+  longitude?: number;
 }
