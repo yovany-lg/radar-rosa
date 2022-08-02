@@ -20,8 +20,10 @@ const Home: NextPage = () => {
 
         <div className={styles.grid}>
           <a
-            href="https://turtle-v2-artifacts.s3.amazonaws.com/android/fe319862-2872-402b-92d3-95669ff3146e-564a52599b6f4d7da46dde097fac8944.apk"
+            href="https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40yovany.lg/radar-rosa-app-0f559d4dc5a84e158b676a889ff70dd0-signed.apk"
             className={styles.card}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Demo Android
           </a>
